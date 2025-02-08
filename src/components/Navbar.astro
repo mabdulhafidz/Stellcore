@@ -1,0 +1,442 @@
+---
+// src/components/Navbar.astro
+---
+
+<nav
+  class="fixed w-full z-50 px-4 sm:px-6 lg:px-8 py-6 transition-all duration-300"
+  id="navbar"
+>
+  <div
+    class="max-w-8xl mx-auto flex items-center justify-between transition-all duration-300"
+  >
+    <!-- Left Navigation -->
+    <div
+      class="relative hidden md:block transition-opacity duration-300 opacity-100"
+      id="left-nav"
+    >
+      <div class="absolute inset-0 bg-gradient-to-r from-emerald-600/20 to-blue-600/20 rounded-2xl blur-xl"></div>
+      <div class="relative bg-zinc-900/90 backdrop-blur-xl rounded-2xl border border-white/5 shadow-2xl">
+        <div class="flex items-center space-x-1 p-2">
+          <a href="#programs" class="nav-link group" data-section="programs">
+            <span class="nav-text">Programs</span>
+            <span class="nav-indicator"></span>
+          </a>
+          <a href="#classes" class="nav-link group" data-section="classes">
+            <span class="nav-text">Classes</span>
+            <span class="nav-indicator"></span>
+          </a>
+          <a href="#schedule" class="nav-link group" data-section="schedule">
+            <span class="nav-text">Schedule</span>
+            <span class="nav-indicator"></span>
+          </a>
+        </div>
+      </div>
+    </div>
+
+    <!-- Centered Logo -->
+    <div class="flex-shrink-0 relative group">
+      <div class="absolute -inset-4 rounded-full blur-lg opacity-20 group-hover:opacity-30 transition duration-500 animate-pulse">
+      </div>
+      <a href="#" class="relative flex flex-col items-center transform hover:scale-105 transition-transform duration-300" id="logo-link">
+        <div class="w-20 h-20 relative p-2 rounded-full">
+          <div class="absolute inset-0 rounded-full animate-spin-slow"></div>
+          <img
+            src="/Vector.png"
+            alt="Vector Image"
+            class="w-full h-full object-contain relative z-10"
+          />
+        </div>
+        <span class="mt-2 text-xl font-bold bg-clip-text tracking-wider text-white" id="logo-text">
+          STELLCORE
+        </span>
+      </a>
+    </div>
+
+    <!-- Right Navigation -->
+    <div
+      class="relative hidden md:block transition-opacity duration-300 opacity-100"
+      id="right-nav"
+    >
+      <div class="absolute inset-0 bg-gradient-to-r from-blue-600/20 to-emerald-600/20 rounded-2xl blur-xl"></div>
+      <div class="relative bg-zinc-900/90 backdrop-blur-xl rounded-2xl border border-white/5 shadow-2xl">
+        <div class="flex items-center space-x-1 p-2">
+          <a href="#trainers" class="nav-link group" data-section="trainers">
+            <span class="nav-text">Trainers</span>
+            <span class="nav-indicator"></span>
+          </a>
+          <a href="#nutrition" class="nav-link group" data-section="nutrition">
+            <span class="nav-text">Nutrition</span>
+            <span class="nav-indicator"></span>
+          </a>
+          <div class="relative group">
+            <div class="absolute -inset-0.5 bg-gradient-to-r from-emerald-600 to-blue-600 rounded-xl blur opacity-30 group-hover:opacity-50 transition duration-500"></div>
+            <a
+              href="#join"
+              class="relative flex items-center px-4 py-2 bg-black rounded-xl overflow-hidden"
+            >
+              <span class="relative z-10 text-white text-sm font-medium">
+                Join Now
+              </span>
+              <div class="absolute inset-0 bg-gradient-to-r from-emerald-600/10 to-blue-600/10 opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                class="relative z-10 w-4 h-4 ml-2 text-white transition-transform duration-300 group-hover:translate-x-1"
+                viewBox="0 0 20 20"
+                fill="currentColor"
+              >
+                <path
+                  fill-rule="evenodd"
+                  d="M10.293 3.293a1 1 0 011.414 0l6 6a1 1 0 010 1.414l-6 6a1 1 0 01-1.414-1.414L14.586 11H3a1 1 0 110-2h11.586l-4.293-4.293a1 1 0 010-1.414z"
+                  clip-rule="evenodd"></path>
+              </svg>
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Mobile Menu Button -->
+    <div class="md:hidden absolute right-4">
+      <button
+        id="menu-button"
+        class="relative group"
+        aria-label="Toggle menu"
+      >
+        <div class="relative flex overflow-hidden items-center justify-center rounded-full w-[50px] h-[50px] transform transition-all bg-zinc-800 ring-0 ring-gray-300 hover:ring-8 group-hover:ring-4 ring-opacity-30 duration-200 shadow-md">
+          <div class="flex flex-col justify-between w-[20px] h-[20px] transform transition-all duration-300 origin-center overflow-hidden">
+            <div class="bg-white h-[2px] w-7 transform transition-all duration-300 origin-left group-hover:rotate-[42deg] group-hover:w-2/3 delay-150"></div>
+            <div class="bg-white h-[2px] w-7 rounded transform transition-all duration-300 group-hover:translate-x-10"></div>
+            <div class="bg-white h-[2px] w-7 transform transition-all duration-300 origin-left group-hover:-rotate-[42deg] group-hover:w-2/3 delay-150"></div>
+          </div>
+        </div>
+      </button>
+    </div>
+  </div>
+
+  <!-- Mobile Menu -->
+  <div id="mobile-menu" class="hidden md:hidden mt-4">
+    <div class="relative mx-4">
+      <div class="absolute inset-0 bg-gradient-to-b from-zinc-900/95 to-black/95 rounded-2xl backdrop-blur-xl"></div>
+      <div class="relative p-6 space-y-6">
+        <div class="grid gap-y-6">
+          <a href="#programs" class="mobile-nav-link group" data-section="programs">
+            <span class="text-lg font-medium">Programs</span>
+            <span class="block mt-0.5 text-sm text-zinc-400">Explore our training programs</span>
+          </a>
+          <a href="#classes" class="mobile-nav-link group" data-section="classes">
+            <span class="text-lg font-medium">Classes</span>
+            <span class="block mt-0.5 text-sm text-zinc-400">Join group workouts</span>
+          </a>
+          <a href="#schedule" class="mobile-nav-link group" data-section="schedule">
+            <span class="text-lg font-medium">Schedule</span>
+            <span class="block mt-0.5 text-sm text-zinc-400">Class timetable</span>
+          </a>
+          <a href="#trainers" class="mobile-nav-link group" data-section="trainers">
+            <span class="text-lg font-medium">Trainers</span>
+            <span class="block mt-0.5 text-sm text-zinc-400">Meet our expert team</span>
+          </a>
+          <a href="#nutrition" class="mobile-nav-link group" data-section="nutrition">
+            <span class="text-lg font-medium">Nutrition</span>
+            <span class="block mt-0.5 text-sm text-zinc-400">Meal plans & advice</span>
+          </a>
+        </div>
+        <div class="pt-4">
+          <a href="#join" class="mobile-join-button group">
+            <div class="relative flex items-center justify-center">
+              <span class="text-lg font-semibold">Start Your Journey</span>
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                class="w-5 h-5 ml-2 transition-transform duration-300 group-hover:translate-x-1"
+                viewBox="0 0 20 20"
+                fill="currentColor"
+              >
+                <path
+                  fill-rule="evenodd"
+                  d="M10.293 3.293a1 1 0 011.414 0l6 6a1 1 0 010 1.414l-6 6a1 1 0 01-1.414-1.414L14.586 11H3a1 1 0 110-2h11.586l-4.293-4.293a1 1 0 010-1.414z"
+                  clip-rule="evenodd"></path>
+              </svg>
+            </div>
+          </a>
+        </div>
+      </div>
+    </div>
+  </div>
+</nav>
+
+<style is:global>
+  /* Base Styles */
+  body {
+    font-family: sans-serif;
+  }
+
+  /* Navbar Styles */
+  #navbar {
+    padding-top: 1rem;
+    padding-bottom: 1rem;
+  }
+
+  #navbar.scrolled {
+    background-color: rgba(10, 10, 10, 0.95); /* Background when scrolled */
+    padding-top: 0.5rem;
+    padding-bottom: 0.5rem;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2); /* Add a subtle shadow on scroll */
+  }
+
+  #navbar.scrolled #left-nav,
+  #navbar.scrolled #right-nav {
+      opacity: 0;
+      transition: opacity 0.3s ease;
+  }
+
+  #navbar.scrolled #logo-link {
+    flex-direction: row; /* Change to row for horizontal layout */
+    align-items: center; /* Vertically center the items */
+  }
+
+  #navbar.scrolled #logo-text {
+    margin-left: 0.75rem;
+    font-size: 1.25rem;
+    background: none;
+    -webkit-background-clip: initial;
+    -webkit-text-fill-color: #fff; /* Change text color to white */
+  }
+
+  #navbar.scrolled #left-nav,
+  #navbar.scrolled #right-nav {
+      opacity: 1;
+  }
+
+  #navbar.scrolled .nav-link {
+      padding: 0.5rem 0.75rem; /* Adjust padding for smaller size */
+      font-size: 0.8rem; /* Adjust font size */
+  }
+
+  /* Mobile Styles */
+  @media (max-width: 767px) {
+    #navbar {
+      padding-top: 0.75rem;
+      padding-bottom: 0.75rem;
+    }
+
+    #logo-link {
+      width: 100%;
+      justify-content: center;
+    }
+
+    #logo-link img {
+      width: 40px;
+      height: 40px;
+    }
+
+    #logo-text {
+      font-size: 1rem;
+      margin-top: 0.5rem;
+    }
+  }
+
+  .nav-link {
+    position: relative;
+    padding: 0.625rem 1rem;
+    border-radius: 0.75rem;
+    font-size: 0.875rem;
+    font-weight: 500;
+    color: rgb(209 213 219);
+    transition: all 0.3s ease;
+    overflow: hidden;
+  }
+
+  .nav-text {
+    position: relative;
+    z-index: 10;
+    transition: color 0.3s ease;
+  }
+
+  .nav-link::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(
+      45deg,
+      rgb(16 185 129 / 0.1),
+      rgb(59 130 246 / 0.1)
+    );
+    border-radius: 0.75rem;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+  }
+
+  .nav-link:hover::before,
+  .nav-link.active::before {
+    opacity: 1;
+  }
+
+  .nav-indicator {
+    position: absolute;
+    bottom: 0.375rem;
+    left: 1rem;
+    right: 1rem;
+    height: 2px;
+    background: linear-gradient(to right, rgb(16 185 129), rgb(59 130 246));
+    border-radius: 0.75rem;
+    opacity: 0;
+    transform: scaleX(0);
+    transition: all 0.3s ease;
+  }
+
+  .nav-link:hover .nav-indicator,
+  .nav-link.active .nav-indicator {
+    opacity: 1;
+    transform: scaleX(1);
+  }
+
+  .mobile-nav-link {
+    display: block;
+    padding: 1rem;
+    border-radius: 1rem;
+    background: linear-gradient(
+      to right,
+      rgb(24 24 27 / 0.3),
+      rgb(9 9 11 / 0.3)
+    );
+    border: 1px solid rgb(255 255 255 / 0.05);
+    transition: all 0.3s ease;
+  }
+
+  .mobile-nav-link:hover,
+  .mobile-nav-link.active {
+    background: linear-gradient(
+      to right,
+      rgb(24 24 27 / 0.5),
+      rgb(9 9 11 / 0.5)
+    );
+    border-color: rgb(255 255 255 / 0.1);
+    transform: translateY(-2px);
+  }
+
+  .mobile-join-button {
+    display: block;
+    padding: 1.25rem;
+    border-radius: 1rem;
+    background: linear-gradient(45deg, rgb(16 185 129), rgb(59 130 246));
+    color: white;
+    text-align: center;
+    transition: all 0.3s ease;
+    border: 1px solid rgb(255 255 255 / 0.1);
+  }
+
+  .mobile-join-button:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 20px 40px rgb(16 185 129 / 0.2);
+  }
+
+  @keyframes slideDown {
+    from {
+      opacity: 0;
+      transform: translateY(-1rem);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+
+  @keyframes spin-slow {
+    from {
+      transform: rotate(0deg);
+    }
+    to {
+      transform: rotate(360deg);
+    }
+  }
+
+  .animate-spin-slow {
+    animation: spin-slow 20s linear infinite;
+  }
+
+  #mobile-menu:not(.hidden) {
+    animation: slideDown 0.4s ease-out forwards;
+  }
+</style>
+
+<script>
+  const menuButton = document.getElementById("menu-button");
+  const mobileMenu = document.getElementById("mobile-menu");
+  const navLinks = document.querySelectorAll(".nav-link, .mobile-nav-link");
+  const navbar = document.getElementById("navbar");
+  const logoLink = document.getElementById("logo-link");
+  const logoText = document.getElementById("logo-text");
+
+  // Mobile Menu Toggle
+  menuButton?.addEventListener("click", () => {
+    mobileMenu?.classList.toggle("hidden");
+    menuButton.classList.toggle("active");
+  });
+
+  document.addEventListener("click", (event) => {
+    const target = event.target as HTMLElement;
+    if (!target.closest("#mobile-menu") && !target.closest("#menu-button")) {
+      mobileMenu?.classList.add("hidden");
+      menuButton?.classList.remove("active");
+    }
+  });
+
+  // Smooth Scroll and Mobile Menu Close
+  navLinks.forEach((link) => {
+    link.addEventListener("click", (e) => {
+      e.preventDefault();
+      const href = link.getAttribute("href");
+      if (href) {
+        const targetSection = document.querySelector(href);
+        const offset = 100;
+        const targetPosition = (targetSection as HTMLElement)?.offsetTop - offset;
+
+        window.scrollTo({
+          top: targetPosition,
+          behavior: "smooth",
+        });
+
+        mobileMenu?.classList.add("hidden");
+        menuButton?.classList.remove("active");
+      }
+    });
+  });
+
+  // Section Observer for Active Link
+  const sections = document.querySelectorAll("section[id]");
+  const navHeight = document.querySelector("nav")?.offsetHeight || 0;
+
+  const observerOptions = {
+    rootMargin: `-${navHeight + 20}px 0px -50%`,
+    threshold: [0, 0.5],
+  };
+
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach((entry) => {
+      if (entry.isIntersecting && entry.intersectionRatio >= 0.5) {
+        const current = entry.target.getAttribute("id") || "";
+        navLinks.forEach((link) => {
+          const section = link.getAttribute("data-section");
+          if (section === current) {
+            link.classList.add("active");
+          } else {
+            link.classList.remove("active");
+          }
+        });
+      }
+    });
+  }, observerOptions);
+
+  sections.forEach((section) => observer.observe(section));
+
+  // Navbar Scroll Effect
+  function handleScroll() {
+    if (window.scrollY > 50) {
+      navbar?.classList.add("scrolled");
+    } else {
+      navbar?.classList.remove("scrolled");
+    }
+  }
+
+  document.addEventListener("scroll", handleScroll);
+  handleScroll(); // Run once on load to set the initial state
+</script>

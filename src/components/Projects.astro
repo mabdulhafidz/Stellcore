@@ -1,0 +1,137 @@
+---
+// src/components/Programs.astro
+const programs = [
+    {
+        title: "Power Sculpt Elite",
+        description: "High-intensity strength training program designed to build lean muscle and boost metabolism",
+        image: "https://th.bing.com/th/id/OIP.R25DDjyrPt_UGMvjVg_Y8AAAAA?rs=1&pid=ImgDetMain",
+        features: ["12-week program", "Video tutorials", "Nutrition guide", "Progress tracking"],
+        difficulty: "Advanced",
+        category: "Strength"
+    },
+    {
+        title: "CardioFlex 360",
+        description: "Dynamic cardio and flexibility program combining HIIT with mobility training",
+        image: "https://images.pexels.com/photos/13896072/pexels-photo-13896072.jpeg?auto=compress&cs=tinysrgb&w=600",
+        features: ["8-week program", "Live sessions", "Heart rate training", "Recovery protocols"],
+        difficulty: "Intermediate",
+        category: "Cardio"
+    },
+    {
+        title: "Core Matrix Pro",
+        description: "Comprehensive core strengthening and stability program for athletic performance",
+        image: "https://images.pexels.com/photos/4761339/pexels-photo-4761339.jpeg?auto=compress&cs=tinysrgb&w=600",
+        features: ["6-week program", "Form guidance", "Progressive overload", "Mobile app access"],
+        difficulty: "All Levels",
+        category: "Core"
+    },
+    {
+        title: "Elite Performance",
+        description: "Advanced athletic training program focusing on speed, power, and agility",
+        image: "https://classpass-res.cloudinary.com/image/upload/f_auto,q_auto/y9xfafwxtoxyvpsrzbcg.png",
+        features: ["16-week program", "1-1 coaching", "Custom meal plans", "Performance metrics"],
+        difficulty: "Expert",
+        category: "Performance"
+    }
+];
+---
+
+<section id="programs" class="py-20 bg-gradient-to-b from-slate-900 to-slate-800 relative overflow-hidden">
+    <!-- Animated background elements -->
+    <div class="absolute inset-0 pointer-events-none">
+        <div class="absolute top-0 left-1/4 w-72 h-72 bg-red-500/10 rounded-full mix-blend-multiply filter blur-3xl animate-float"></div>
+        <div class="absolute bottom-0 right-1/4 w-72 h-72 bg-orange-500/10 rounded-full mix-blend-multiply filter blur-3xl animate-float animation-delay-2000"></div>
+    </div>
+
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative">
+        <div class="text-center mb-16">
+            <h2 class="text-4xl sm:text-5xl font-bold mb-4 bg-clip-text text-transparent bg-gradient-to-r from-red-500 to-orange-500">
+                Featured Programs
+            </h2>
+            <div class="w-24 h-1.5 bg-gradient-to-r from-red-500 to-orange-500 mx-auto rounded-full"></div>
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+            {programs.map((program) => (
+                <div class="group relative">
+                    <div class="absolute -inset-0.5 bg-gradient-to-r from-red-500 to-orange-500 rounded-xl blur opacity-25 group-hover:opacity-75 transition duration-500"></div>
+                    <div class="relative bg-slate-900 rounded-xl overflow-hidden">
+                        <div class="relative h-64 overflow-hidden">
+                            <img 
+                                src={program.image} 
+                                alt={program.title}
+                                class="w-full h-full object-cover transform group-hover:scale-110 transition-transform duration-500"
+                            />
+                            <div class="absolute inset-0 bg-gradient-to-t from-slate-900 via-slate-900/40 to-transparent"></div>
+                            <div class="absolute top-4 right-4 px-3 py-1 bg-red-500 text-white text-sm font-semibold rounded-full">
+                                {program.difficulty}
+                            </div>
+                            <div class="absolute top-4 left-4 px-3 py-1 bg-slate-800/90 text-white text-sm font-semibold rounded-full">
+                                {program.category}
+                            </div>
+                        </div>
+
+                        <div class="p-6">
+                            <h3 class="text-2xl font-bold mb-2 bg-clip-text text-transparent bg-gradient-to-r from-red-500 to-orange-500">
+                                {program.title}
+                            </h3>
+                            <p class="text-gray-300 mb-4">{program.description}</p>
+                            
+                            <div class="space-y-3 mb-6">
+                                {program.features.map((feature) => (
+                                    <div class="flex items-center space-x-2">
+                                        <i class="fas fa-check-circle text-red-500"></i>
+                                        <span class="text-gray-300">{feature}</span>
+                                    </div>
+                                ))}
+                            </div>
+
+                            <div class="flex items-center space-x-4">
+                                <a 
+                                    href="#enroll"
+                                    class="flex items-center space-x-2 px-6 py-2 bg-gradient-to-r from-red-500 to-orange-500 rounded-full hover:opacity-90 transition-opacity"
+                                >
+                                    <i class="fas fa-play"></i>
+                                    <span>Start Now</span>
+                                </a>
+                                <a 
+                                    href="#details"
+                                    class="flex items-center space-x-2 px-6 py-2 border border-red-500 rounded-full hover:bg-red-500/10 transition-colors"
+                                >
+                                    <i class="fas fa-info-circle"></i>
+                                    <span>Learn More</span>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            ))}
+        </div>
+
+        <div class="text-center mt-12">
+            <a 
+                href="#all-programs"
+                class="inline-flex items-center space-x-2 px-8 py-3 bg-gradient-to-r from-red-500 to-orange-500 rounded-full hover:opacity-90 transition-opacity"
+            >
+                <i class="fas fa-dumbbell"></i>
+                <span>View All Programs</span>
+            </a>
+        </div>
+    </div>
+</section>
+
+<style>
+    @keyframes float {
+        0% { transform: translateY(0); }
+        50% { transform: translateY(-20px); }
+        100% { transform: translateY(0); }
+    }
+
+    .animate-float {
+        animation: float 6s ease-in-out infinite;
+    }
+
+    .animation-delay-2000 {
+        animation-delay: 2000ms;
+    }
+</style>

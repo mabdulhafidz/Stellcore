@@ -1,0 +1,198 @@
+---
+// src/components/Contact.astro
+---
+
+<section id="contact" class="py-20 relative bg-gradient-to-b from-slate-900 to-slate-800">
+    <!-- Animated background elements -->
+    <div class="absolute inset-0 pointer-events-none overflow-hidden">
+        <div class="absolute top-0 left-1/4 w-72 h-72 bg-red-500/10 rounded-full mix-blend-multiply filter blur-3xl animate-float"></div>
+        <div class="absolute bottom-0 right-1/4 w-72 h-72 bg-orange-500/10 rounded-full mix-blend-multiply filter blur-3xl animate-float animation-delay-2000"></div>
+    </div>
+
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative">
+        <div class="text-center mb-16">
+            <h2 class="text-4xl sm:text-5xl font-bold mb-4 bg-clip-text text-transparent bg-gradient-to-r from-red-500 to-orange-500">
+                Start Your Journey
+            </h2>
+            <div class="w-24 h-1.5 bg-gradient-to-r from-red-500 to-orange-500 mx-auto rounded-full"></div>
+        </div>
+
+        <div class="grid grid-cols-1 lg:grid-cols-2 gap-12">
+            <!-- Contact Info -->
+            <div class="space-y-8">
+                <div class="relative group">
+                    <div class="absolute -inset-0.5 bg-gradient-to-r from-red-500 to-orange-500 rounded-xl blur opacity-25 group-hover:opacity-75 transition duration-500"></div>
+                    <div class="relative bg-slate-900 p-8 rounded-xl backdrop-blur-xl">
+                        <h3 class="text-2xl font-bold mb-8 bg-clip-text text-transparent bg-gradient-to-r from-red-500 to-orange-500">
+                            Connect With Us
+                        </h3>
+                        <div class="space-y-6">
+                            <div class="flex items-center space-x-4">
+                                <div class="w-12 h-12 bg-gradient-to-br from-red-500/20 to-orange-500/20 rounded-lg flex items-center justify-center">
+                                    <i class="fas fa-envelope text-red-500"></i>
+                                </div>
+                                <div>
+                                    <p class="text-sm text-gray-400">Email Us</p>
+                                    <a href="mailto:contact@stellcore.com" class="text-red-400 hover:text-red-300">
+                                        contact@stellcore.com
+                                    </a>
+                                </div>
+                            </div>
+                            
+                            <div class="flex items-center space-x-4">
+                                <div class="w-12 h-12 bg-gradient-to-br from-red-500/20 to-orange-500/20 rounded-lg flex items-center justify-center">
+                                    <i class="fas fa-location-dot text-red-500"></i>
+                                </div>
+                                <div>
+                                    <p class="text-sm text-gray-400">Visit Us</p>
+                                    <p>123 Fitness Street, Workout City</p>
+                                </div>
+                            </div>
+
+                            <div class="flex items-center space-x-4">
+                                <div class="w-12 h-12 bg-gradient-to-br from-red-500/20 to-orange-500/20 rounded-lg flex items-center justify-center">
+                                    <i class="fas fa-phone text-red-500"></i>
+                                </div>
+                                <div>
+                                    <p class="text-sm text-gray-400">Call Us</p>
+                                    <a href="tel:+1234567890" class="text-red-400 hover:text-red-300">
+                                        +1 (234) 567-8900
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="mt-8 pt-8 border-t border-gray-800">
+                            <h4 class="text-lg font-semibold mb-4">Follow Stellcore</h4>
+                            <div class="flex space-x-4">
+                                <a href="#" class="social-icon">
+                                    <i class="fab fa-facebook"></i>
+                                </a>
+                                <a href="#" class="social-icon">
+                                    <i class="fab fa-instagram"></i>
+                                </a>
+                                <a href="#" class="social-icon">
+                                    <i class="fab fa-youtube"></i>
+                                </a>
+                                <a href="#" class="social-icon">
+                                    <i class="fab fa-tiktok"></i>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Consultation Form -->
+            <div class="relative group">
+                <div class="absolute -inset-0.5 bg-gradient-to-r from-red-500 to-orange-500 rounded-xl blur opacity-25 group-hover:opacity-75 transition duration-500"></div>
+                <form class="relative bg-slate-900 p-8 rounded-xl space-y-6">
+                    <h3 class="text-2xl font-bold mb-8 bg-clip-text text-transparent bg-gradient-to-r from-red-500 to-orange-500">
+                        Book a Free Consultation
+                    </h3>
+
+                    <div class="grid grid-cols-1 sm:grid-cols-2 gap-6">
+                        <div class="form-group">
+                            <label for="name" class="sr-only">Name</label>
+                            <input 
+                                type="text" 
+                                id="name" 
+                                name="name" 
+                                placeholder="Your Name"
+                                class="form-input"
+                                required
+                            />
+                        </div>
+                        <div class="form-group">
+                            <label for="email" class="sr-only">Email</label>
+                            <input 
+                                type="email" 
+                                id="email" 
+                                name="email" 
+                                placeholder="Your Email"
+                                class="form-input"
+                                required
+                            />
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="program" class="sr-only">Preferred Program</label>
+                        <select id="program" name="program" class="form-input">
+                            <option value="">Select Preferred Program</option>
+                            <option value="strength">Strength Training</option>
+                            <option value="cardio">Cardio & HIIT</option>
+                            <option value="yoga">Yoga & Flexibility</option>
+                            <option value="nutrition">Nutrition Coaching</option>
+                        </select>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="message" class="sr-only">Message</label>
+                        <textarea 
+                            id="message" 
+                            name="message" 
+                            rows="4" 
+                            placeholder="Tell us about your fitness goals"
+                            class="form-input"
+                            required
+                        ></textarea>
+                    </div>
+
+                    <button type="submit" class="w-full px-6 py-3 bg-gradient-to-r from-red-500 to-orange-500 rounded-lg hover:opacity-90 transition-opacity font-semibold">
+                        Schedule Consultation
+                    </button>
+                </form>
+            </div>
+        </div>
+    </div>
+</section>
+
+<style>
+    .social-icon {
+        width: 2.5rem;
+        height: 2.5rem;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        background-color: rgba(239, 68, 68, 0.1);
+        border-radius: 0.5rem;
+        color: rgb(239 68 68);
+        transition: all 0.2s ease;
+    }
+
+    .social-icon:hover {
+        background-color: rgb(239 68 68);
+        color: white;
+        transform: translateY(-2px);
+    }
+
+    .form-input {
+        width: 100%;
+        padding: 0.75rem 1rem;
+        background-color: rgb(30 41 59);
+        border: 1px solid rgb(51 65 85);
+        border-radius: 0.5rem;
+        transition: all 0.2s ease;
+    }
+
+    .form-input:focus {
+        outline: none;
+        border-color: rgb(239 68 68);
+        box-shadow: 0 0 0 2px rgba(239, 68, 68, 0.2);
+    }
+
+    @keyframes float {
+        0% { transform: translateY(0); }
+        50% { transform: translateY(-20px); }
+        100% { transform: translateY(0); }
+    }
+
+    .animate-float {
+        animation: float 6s ease-in-out infinite;
+    }
+
+    .animation-delay-2000 {
+        animation-delay: 2000ms;
+    }
+</style>
