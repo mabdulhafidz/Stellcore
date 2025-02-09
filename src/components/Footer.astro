@@ -1,0 +1,85 @@
+---
+// footer
+---
+
+<footer class="bg-black py-12">
+    <div class="container mx-auto px-4 md:px-8">
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+
+            <div class="flex flex-col items-center md:items-start">
+                <a href="#" class="flex items-center mb-4">
+                    <div class="w-12 h-12 relative p-1 rounded-full">
+                        <div class="absolute inset-0 rounded-full animate-spin-slow"></div>
+                        <img
+                            src="/Vector.png"  
+                            alt="Vector Image"
+                            class="w-full h-full object-contain relative z-10"
+                        />
+                    </div>
+                    <span class="ml-2 text-xl font-bold text-white">STELLCORE</span>
+                </a>
+                <p class="text-sm text-gray-400">© {new Date().getFullYear()} Stellcore. All rights reserved.</p>
+            </div>
+
+            <div class="col-span-1 md:col-span-1 flex flex-col items-center md:items-start">
+                <h4 class="text-lg font-semibold text-white mb-4">Quick Links</h4>
+                <ul class="space-y-2">
+                    <li><a href="#programs" class="footer-link hover:text-purple-400">Programs</a></li>
+                    <li><a href="#classes" class="footer-link hover:text-purple-400">Classes</a></li>
+                    <li><a href="#schedule" class="footer-link hover:text-purple-400">Schedule</a></li>
+                    <li><a href="#trainers" class="footer-link hover:text-purple-400">Trainers</a></li>
+                    <li><a href="#nutrition" class="footer-link hover:text-purple-400">Nutrition</a></li>
+                    <li><a href="#join" class="footer-link hover:text-purple-400">Join Now</a></li>
+                </ul>
+            </div>
+
+            <div class="col-span-1 md:col-span-1 flex flex-col items-center md:items-start">
+                <h4 class="text-lg font-semibold text-white mb-4">Contact Us</h4>
+                <ul class="space-y-2">
+                    <li>
+                        <a href="mailto:contact@stellcore.com" class="footer-link hover:text-purple-400">contact@stellcore.com</a>
+                    </li>
+                    <li>
+                        <a href="tel:+1234567890" class="footer-link hover:text-purple-400">+1 (234) 567-8900</a>
+                    </li>
+                    <li>
+                        <span class="text-gray-400">123 Fitness Street, Workout City</span>
+                    </li>
+                </ul>
+                <div class="mt-4 flex space-x-4">
+                    <a href="#" class="social-icon-footer hover:text-purple-400">
+                        <i class="fab fa-facebook"></i>
+                    </a>
+                    <a href="#" class="social-icon-footer hover:text-purple-400">
+                        <i class="fab fa-instagram"></i>
+                    </a>
+                    <a href="#" class="social-icon-footer hover:text-purple-400">
+                        <i class="fab fa-youtube"></i>
+                    </a>
+                    <a href="#" class="social-icon-footer hover:text-purple-400">
+                        <i class="fab fa-tiktok"></i>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+</footer>
+
+<style is:global>
+    .footer-link {
+        color: rgb(209 213 219);
+        transition: color 0.3s ease;
+    }
+
+    .social-icon-footer {
+        width: 2.5rem;
+        height: 2.5rem;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        background-color: rgba(192, 132, 252, 0.15); 
+        border-radius: 0.5rem;
+        color: #c084fc; 
+        transition: all 0.2s ease;
+    }
+</style>

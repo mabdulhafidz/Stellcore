@@ -1,0 +1,92 @@
+---
+const personalTrainingData = {
+    title: "PERSONAL TRAINING",
+    mainImage: "https://images.pexels.com/photos/6456300/pexels-photo-6456300.jpeg",
+    trainersImage: "https://images.pexels.com/photos/6456209/pexels-photo-6456209.jpeg",
+    trainerCount: "+10",
+    description: "Our state-of-the-art facilities and expert trainers are here to help you achieve your fitness goals, no matter your starting point.",
+    offer: {
+        title: "WE OFFER",
+        subtitle: "Free trial sessions",
+        details: "for new members"
+    }
+};
+---
+
+<section class="relative min-h-screen bg-black overflow-hidden">
+    <div class="absolute inset-0">
+        <div class="absolute top-0 left-1/4 w-96 h-96 bg-purple-500/20 rounded-full mix-blend-multiply filter blur-3xl animate-float"></div>
+        <div class="absolute bottom-0 right-1/4 w-96 h-96 bg-pink-500/20 rounded-full mix-blend-multiply filter blur-3xl animate-float animation-delay-2000"></div>
+    </div>
+
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative pt-20">
+        <div class="flex flex-col lg:flex-row gap-12">
+            <div class="lg:w-1/2 space-y-8">
+                <div class="flex items-center gap-3">
+                    <div class="flex gap-1">
+                        <div class="w-8 h-8 bg-white"></div>
+                        <div class="w-8 h-8 bg-pink-500"></div>
+                    </div>
+                    <h1 class="text-5xl font-bold text-white tracking-wider">{personalTrainingData.title}</h1>
+                </div>
+
+                <div class="bg-gray-900/80 backdrop-blur-sm rounded-3xl p-8 transform hover:scale-105 transition-transform duration-300">
+                    <h2 class="text-2xl font-bold text-white mb-4">{personalTrainingData.offer.title}</h2>
+                    <p class="text-lg text-white mb-2">{personalTrainingData.offer.subtitle}</p>
+                    <p class="text-sm text-gray-400 mb-6">{personalTrainingData.offer.details}</p>
+                    <button class="px-6 py-2 bg-gradient-to-r from-purple-500 to-pink-500 rounded-full text-white font-semibold hover:opacity-90 transition-opacity flex items-center gap-2">
+                        Sign up
+                        <span class="w-5 h-5 bg-white rounded-full flex items-center justify-center">
+                            <span class="text-purple-500 text-sm">→</span>
+                        </span>
+                    </button>
+                </div>
+            </div>
+
+            <div class="lg:w-1/2 relative">
+                <div class="rounded-3xl overflow-hidden aspect-[4/3]">
+                    <img 
+                        src={personalTrainingData.mainImage} 
+                        alt="Personal Training Session" 
+                        class="w-full h-full object-cover"
+                    />
+                </div>
+
+                <div class="absolute -bottom-6 right-6 bg-[#FEFAE0] p-4 rounded-2xl max-w-xs transform hover:scale-105 transition-transform duration-300">
+                    <div class="flex items-center gap-4">
+                        <img 
+                            src={personalTrainingData.trainersImage} 
+                            alt="Personal Trainers" 
+                            class="w-24 h-16 object-cover rounded-xl"
+                        />
+                        <div>
+                            <p class="text-2xl font-bold text-black">{personalTrainingData.trainerCount}</p>
+                            <p class="text-sm text-gray-600">Personal trainers</p>
+                        </div>
+                    </div>
+                    <p class="text-sm text-gray-600 mt-3">{personalTrainingData.description}</p>
+                    <button class="mt-4 px-4 py-2 bg-black text-white rounded-full text-sm hover:bg-gray-800 transition-colors flex items-center gap-2">
+                        Explore more
+                        <span>→</span>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<style>
+    @keyframes float {
+        0% { transform: translateY(0); }
+        50% { transform: translateY(-20px); }
+        100% { transform: translateY(0); }
+    }
+
+    .animate-float {
+        animation: float 6s ease-in-out infinite;
+    }
+
+    .animation-delay-2000 {
+        animation-delay: 2000ms;
+    }
+</style>

@@ -1,0 +1,173 @@
+---
+// src/components/TrainingCarousel.astro
+---
+
+<section class="bg-gradient-to-br from-purple-600 via-pink-500 to-purple-800 min-h-screen flex items-center overflow-hidden">
+    <div class="w-full relative">
+        <div class="absolute top-12 left-12 z-10 text-white">
+            <div class="flex items-center gap-2 mb-4">
+                <div class="w-8 h-8 flex items-center">
+                    <div class="w-6 h-1 bg-pink-300"></div>
+                    <div class="w-4 h-1 bg-purple-300 ml-1"></div>
+                </div>
+            </div>
+            <h2 class="text-6xl font-bold mb-4 bg-clip-text text-transparent bg-gradient-to-r from-white to-pink-200">
+                FITNESS <br/>EVOLUTION
+            </h2>
+            <p class="text-gray-200 text-lg max-w-lg">
+                Discover the next generation of fitness training. Scroll to explore our revolutionary programs.
+            </p>
+            
+            <div class="flex gap-4 mt-8">
+                <button id="prev" class="p-4 rounded-full bg-white/10 backdrop-blur-lg hover:bg-white/20 transition-all">
+                    <svg class="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7"/>
+                    </svg>
+                </button>
+                <button id="next" class="p-4 rounded-full bg-white/10 backdrop-blur-lg hover:bg-white/20 transition-all">
+                    <svg class="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/>
+                    </svg>
+                </button>
+            </div>
+        </div>
+
+        <div class="absolute bottom-12 left-12 z-10 grid grid-cols-4 gap-8">
+            <div class="bg-white/10 backdrop-blur-lg rounded-2xl p-6 border border-white/20">
+                <h3 class="text-4xl font-bold text-white mb-2">8K+</h3>
+                <p class="text-gray-200">Active Members</p>
+            </div>
+            <div class="bg-white/10 backdrop-blur-lg rounded-2xl p-6 border border-white/20">
+                <h3 class="text-4xl font-bold text-white mb-2">500+</h3>
+                <p class="text-gray-200">Elite Athletes</p>
+            </div>
+            <div class="bg-white/10 backdrop-blur-lg rounded-2xl p-6 border border-white/20">
+                <h3 class="text-4xl font-bold text-white mb-2">95%</h3>
+                <p class="text-gray-200">Goal Achievement</p>
+            </div>
+            <div class="bg-white/10 backdrop-blur-lg rounded-2xl p-6 border border-white/20">
+                <h3 class="text-4xl font-bold text-white mb-2">30%</h3>
+                <p class="text-gray-200">Performance Boost</p>
+            </div>
+        </div>
+
+        <div class="carousel-container absolute right-0 top-0 h-screen w-2/3 overflow-hidden">
+            <div class="carousel flex transition-transform duration-700 ease-out h-full">
+                {[1, 2, 3, 4].map((_, index) => (
+                    <div class="carousel-item min-w-full h-full p-12 flex gap-8 opacity-0">
+                        <div class="w-full bg-gradient-to-br from-white/10 to-white/5 backdrop-blur-xl rounded-3xl shadow-2xl overflow-hidden flex flex-col border border-white/20">
+                            <div class="h-96 bg-gradient-to-br from-purple-400/20 to-pink-400/20 relative">
+                                <div class="absolute inset-0 flex items-center justify-center">
+                                    <button class="w-20 h-20 bg-gradient-to-r from-purple-600 to-pink-600 rounded-full flex items-center justify-center shadow-lg transform transition-all hover:scale-110 hover:shadow-pink-500/25">
+                                        <svg class="w-10 h-10 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14.752 11.168l-3.197-2.132A1 1 0 0010 9.87v4.263a1 1 0 001.555.832l3.197-2.132a1 1 0 000-1.664z"/>
+                                        </svg>
+                                    </button>
+                                </div>
+                            </div>
+                            <div class="p-8 text-white">
+                                <h3 class="text-2xl font-bold mb-4">Program {index + 1}</h3>
+                                <p class="text-gray-300">Revolutionize your fitness journey with our cutting-edge training methodology</p>
+                                <button class="mt-6 w-full py-4 bg-gradient-to-r from-purple-600 to-pink-600 rounded-xl hover:opacity-90 transition-all">
+                                    Start Journey
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                ))}
+            </div>
+        </div>
+    </div>
+</section>
+
+<script>
+const carousel = document.querySelector('.carousel');
+const items = document.querySelectorAll('.carousel-item');
+const prevBtn = document.getElementById('prev');
+const nextBtn = document.getElementById('next');
+
+let currentIndex = 0;
+
+function updateCarousel() {
+    const translateX = -currentIndex * 100;
+    carousel.style.transform = `translateX(${translateX}%)`;
+}
+
+function showSlide(index) {
+    items.forEach((item, i) => {
+        if (i === index) {
+            item.classList.add('slide-in-right');
+            item.classList.remove('opacity-0');
+        } else {
+            item.classList.remove('slide-in-right');
+            item.classList.add('opacity-0');
+        }
+    });
+}
+
+prevBtn?.addEventListener('click', () => {
+    if (currentIndex > 0) {
+        currentIndex--;
+        updateCarousel();
+        showSlide(currentIndex);
+    }
+});
+
+nextBtn?.addEventListener('click', () => {
+    if (currentIndex < items.length - 1) {
+        currentIndex++;
+        updateCarousel();
+        showSlide(currentIndex);
+    }
+});
+
+showSlide(0);
+
+const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+        if (entry.isIntersecting) {
+            const index = Array.from(items).indexOf(entry.target);
+            if (index === currentIndex) {
+                entry.target.classList.add('slide-in-right');
+                entry.target.classList.remove('opacity-0');
+            }
+        }
+    });
+}, {
+    threshold: 0.1,
+    rootMargin: '0px'
+});
+
+items.forEach(item => observer.observe(item));
+</script>
+
+<style>
+.carousel-container {
+    mask-image: linear-gradient(to right, transparent, black 10%, black 90%, transparent);
+    -webkit-mask-image: linear-gradient(to right, transparent, black 10%, black 90%, transparent);
+}
+
+@keyframes slideInRight {
+    from {
+        opacity: 0;
+        transform: translateX(100px);
+    }
+    to {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+.slide-in-right {
+    animation: slideInRight 0.8s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+::-webkit-scrollbar {
+    display: none;
+}
+
+* {
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+}
+</style>
