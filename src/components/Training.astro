@@ -1,196 +1,488 @@
 ---
-// src/components/TrainingCarousel.astro
+const programs = [
+  {
+    title: "Elite Performance",
+    description:
+      "AI-powered training methodology for peak athletic performance",
+    image: "https://images.pexels.com/photos/700446/pexels-photo-700446.jpeg?auto=compress&cs=tinysrgb&w=600",
+    category: "Premium",
+    features: [
+      "Advanced AI tracking",
+      "Real-time performance analytics",
+      "Elite coaching support",
+      "Custom nutrition plans",
+    ],
+    stats: {
+      improvement: "45%",
+      satisfaction: "98%",
+      retention: "92%",
+    },
+  },
+  {
+    title: "Strength Master",
+    description:
+      "Revolutionary strength training program with cutting-edge techniques",
+    image: "https://images.pexels.com/photos/1480530/pexels-photo-1480530.jpeg?auto=compress&cs=tinysrgb&w=600",
+    category: "Advanced",
+    features: [
+      "Progressive overload AI",
+      "Form analysis technology",
+      "Recovery optimization",
+      "Strength benchmarking",
+    ],
+    stats: {
+      improvement: "52%",
+      satisfaction: "96%",
+      retention: "89%",
+    },
+  },
+  {
+    title: "Endurance Elite",
+    description: "Next-generation endurance training for exceptional stamina",
+    image: "https://images.pexels.com/photos/241456/pexels-photo-241456.jpeg?auto=compress&cs=tinysrgb&w=600",
+    category: "Specialty",
+    features: [
+      "VO2 max optimization",
+      "Heart rate zone training",
+      "Recovery protocols",
+      "Endurance analytics",
+    ],
+    stats: {
+      improvement: "38%",
+      satisfaction: "95%",
+      retention: "94%",
+    },
+  },
+  {
+    title: "Transform Pro",
+    description: "Complete body transformation using AI-driven methodologies",
+    image: "https://images.pexels.com/photos/2092479/pexels-photo-2092479.jpeg?auto=compress&cs=tinysrgb&w=600",
+    category: "Premium",
+    features: [
+      "Body composition AI",
+      "Metabolic optimization",
+      "Nutrition automation",
+      "Progress tracking",
+    ],
+    stats: {
+      improvement: "41%",
+      satisfaction: "97%",
+      retention: "90%",
+    },
+  },
+];
+
+const achievements = [
+  {
+    number: "8K+",
+    label: "Active Members",
+    description: "Transforming lives daily",
+  },
+  {
+    number: "500+",
+    label: "Elite Athletes",
+    description: "Professional success stories",
+  },
+  {
+    number: "95%",
+    label: "Goal Achievement",
+    description: "Proven results",
+  },
+  {
+    number: "30%",
+    label: "Performance Boost",
+    description: "Average improvement",
+  },
+];
 ---
 
-<section class="bg-[#0D0116] min-h-screen flex items-center overflow-hidden relative">
-    <!-- Animated background gradients -->
-    <div class="absolute inset-0 opacity-30">
-        <div class="absolute top-0 left-1/4 w-96 h-96 bg-pink-600/20 rounded-full filter blur-[128px] animate-pulse"></div>
-        <div class="absolute bottom-0 right-1/4 w-96 h-96 bg-purple-600/20 rounded-full filter blur-[128px] animate-pulse delay-700"></div>
+<section class="bg-[#0D0116] min-h-screen overflow-hidden relative">
+  <!-- Animated background gradients -->
+  <div class="absolute inset-0 opacity-30">
+    <div
+      class="absolute top-0 left-1/4 w-96 h-96 bg-pink-600/20 rounded-full filter blur-[128px] animate-pulse"
+    >
+    </div>
+    <div
+      class="absolute bottom-0 right-1/4 w-96 h-96 bg-purple-600/20 rounded-full filter blur-[128px] animate-pulse delay-700"
+    >
+    </div>
+  </div>
+
+  <!-- Hero Section -->
+  <div class="relative z-10 pt-20">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <!-- Decorative element -->
+      <div class="flex items-center gap-2 mb-8">
+        <div class="w-12 h-[2px] bg-gradient-to-r from-pink-500 to-purple-500">
+        </div>
+        <div class="w-3 h-3 rounded-full bg-pink-500 animate-pulse"></div>
+      </div>
+
+      <div class="grid grid-cols-1 lg:grid-cols-2 gap-20">
+        <div class="space-y-8">
+          <h1 class="text-7xl font-bold tracking-tight">
+            <span
+              class="bg-clip-text text-transparent bg-gradient-to-r from-pink-500 to-purple-500"
+              >NEXT</span
+            >
+            <br />
+            <span class="text-white">EVOLUTION</span>
+          </h1>
+
+          <p class="text-gray-400 text-xl font-light leading-relaxed max-w-lg">
+            Transform your potential with our revolutionary training systems.
+            Experience fitness reimagined for the future.
+          </p>
+
+          <div class="flex gap-6">
+            <button
+              class="px-8 py-4 bg-gradient-to-r from-pink-500 to-purple-500 rounded-full relative group overflow-hidden"
+            >
+              <div
+                class="absolute inset-0 bg-gradient-to-r from-pink-600 to-purple-600 translate-y-full group-hover:translate-y-0 transition-transform duration-300"
+              >
+              </div>
+              <span class="relative z-10 text-white font-medium"
+                >Start Your Journey</span
+              >
+            </button>
+            <button
+              class="px-8 py-4 border border-pink-500/30 rounded-full text-white font-medium hover:bg-pink-500/10 transition-colors"
+            >
+              Learn More
+            </button>
+          </div>
+        </div>
+
+        <!-- Stats Cards -->
+        <div class="grid grid-cols-2 gap-6">
+          {
+            achievements.map((achievement) => (
+              <div class="relative bg-black/20 backdrop-blur-xl rounded-2xl p-6 border border-white/5 transition-all duration-300 hover:border-pink-500/20 group">
+                <div class="absolute inset-0 bg-gradient-to-br from-pink-500/10 to-purple-500/10 opacity-0 group-hover:opacity-100 transition-opacity duration-500 rounded-2xl" />
+                <h3 class="text-4xl font-bold text-white mb-2 bg-clip-text text-transparent bg-gradient-to-r from-pink-500 to-purple-500">
+                  {achievement.number}
+                </h3>
+                <p class="text-gray-400 font-medium">{achievement.label}</p>
+                <p class="text-gray-500 text-sm mt-1">
+                  {achievement.description}
+                </p>
+              </div>
+            ))
+          }
+        </div>
+      </div>
     </div>
 
-    <div class="w-full relative z-10">
-        <div class="absolute top-12 left-12 z-10">
-            <!-- Decorative element -->
-            <div class="flex items-center gap-2 mb-8">
-                <div class="w-12 h-[2px] bg-gradient-to-r from-pink-500 to-purple-500"></div>
-                <div class="w-3 h-3 rounded-full bg-pink-500 animate-pulse"></div>
-            </div>
-
-            <h2 class="text-7xl font-bold mb-6 tracking-tight">
-                <span class="bg-clip-text text-transparent bg-gradient-to-r from-pink-500 to-purple-500">NEXT</span>
-                <br/>
-                <span class="text-white">EVOLUTION</span>
-            </h2>
-            
-            <p class="text-gray-400 text-lg max-w-lg font-light leading-relaxed">
-                Transform your potential with our revolutionary training systems. Experience fitness reimagined for the future.
-            </p>
-            
-            <div class="flex gap-6 mt-12">
-                <button id="prev" class="group p-4 rounded-full border border-white/10 hover:border-pink-500/50 backdrop-blur-xl transition-all duration-300">
-                    <svg class="w-6 h-6 text-white/50 group-hover:text-pink-500 transition-colors" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M15 19l-7-7 7-7"/>
-                    </svg>
-                </button>
-                <button id="next" class="group p-4 rounded-full border border-white/10 hover:border-pink-500/50 backdrop-blur-xl transition-all duration-300">
-                    <svg class="w-6 h-6 text-white/50 group-hover:text-pink-500 transition-colors" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M9 5l7 7-7 7"/>
-                    </svg>
-                </button>
-            </div>
+    <!-- Programs Carousel -->
+    <div class="mt-32 relative">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 mb-12">
+        <div class="flex justify-between items-center">
+          <h2 class="text-3xl font-bold text-white">Featured Programs</h2>
+          <div class="flex gap-4">
+            <button
+              id="prev"
+              class="group p-4 rounded-full border border-white/10 hover:border-pink-500/50 backdrop-blur-xl transition-all duration-300"
+            >
+              <svg
+                class="w-6 h-6 text-white/50 group-hover:text-pink-500 transition-colors"
+                fill="none"
+                stroke="currentColor"
+                viewBox="0 0 24 24"
+              >
+                <path
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  stroke-width="1.5"
+                  d="M15 19l-7-7 7-7"></path>
+              </svg>
+            </button>
+            <button
+              id="next"
+              class="group p-4 rounded-full border border-white/10 hover:border-pink-500/50 backdrop-blur-xl transition-all duration-300"
+            >
+              <svg
+                class="w-6 h-6 text-white/50 group-hover:text-pink-500 transition-colors"
+                fill="none"
+                stroke="currentColor"
+                viewBox="0 0 24 24"
+              >
+                <path
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  stroke-width="1.5"
+                  d="M9 5l7 7-7 7"></path>
+              </svg>
+            </button>
+          </div>
         </div>
+      </div>
 
-        <div class="absolute bottom-12 left-12 z-10 grid grid-cols-4 gap-8">
-            <div class="relative bg-black/20 backdrop-blur-xl rounded-2xl p-6 border border-white/5 transition-all duration-300 hover:border-pink-500/20 group">
-                <div class="absolute inset-0 bg-gradient-to-br from-pink-500/10 to-purple-500/10 opacity-0 group-hover:opacity-100 transition-opacity duration-500 rounded-2xl"></div>
-                <h3 class="text-5xl font-bold text-white mb-2 bg-clip-text text-transparent bg-gradient-to-r from-pink-500 to-purple-500">8K<span class="text-2xl">+</span></h3>
-                <p class="text-gray-400 font-light">Active Members</p>
-            </div>
-            <div class="relative bg-black/20 backdrop-blur-xl rounded-2xl p-6 border border-white/5 transition-all duration-300 hover:border-pink-500/20 group">
-                <div class="absolute inset-0 bg-gradient-to-br from-pink-500/10 to-purple-500/10 opacity-0 group-hover:opacity-100 transition-opacity duration-500 rounded-2xl"></div>
-                <h3 class="text-5xl font-bold text-white mb-2 bg-clip-text text-transparent bg-gradient-to-r from-pink-500 to-purple-500">500<span class="text-2xl">+</span></h3>
-                <p class="text-gray-400 font-light">Elite Athletes</p>
-            </div>
-            <div class="relative bg-black/20 backdrop-blur-xl rounded-2xl p-6 border border-white/5 transition-all duration-300 hover:border-pink-500/20 group">
-                <div class="absolute inset-0 bg-gradient-to-br from-pink-500/10 to-purple-500/10 opacity-0 group-hover:opacity-100 transition-opacity duration-500 rounded-2xl"></div>
-                <h3 class="text-5xl font-bold text-white mb-2 bg-clip-text text-transparent bg-gradient-to-r from-pink-500 to-purple-500">95<span class="text-2xl">%</span></h3>
-                <p class="text-gray-400 font-light">Goal Achievement</p>
-            </div>
-            <div class="relative bg-black/20 backdrop-blur-xl rounded-2xl p-6 border border-white/5 transition-all duration-300 hover:border-pink-500/20 group">
-                <div class="absolute inset-0 bg-gradient-to-br from-pink-500/10 to-purple-500/10 opacity-0 group-hover:opacity-100 transition-opacity duration-500 rounded-2xl"></div>
-                <h3 class="text-5xl font-bold text-white mb-2 bg-clip-text text-transparent bg-gradient-to-r from-pink-500 to-purple-500">30<span class="text-2xl">%</span></h3>
-                <p class="text-gray-400 font-light">Performance Boost</p>
-            </div>
-        </div>
-
-        <div class="carousel-container absolute right-0 top-0 h-screen w-2/3 overflow-hidden">
-            <div class="carousel flex transition-transform duration-700 ease-out h-full">
-                {[1, 2, 3, 4].map((_, index) => (
-                    <div class="carousel-item min-w-full h-full p-12 flex gap-8 opacity-0">
-                        <div class="w-full bg-black/20 backdrop-blur-xl rounded-3xl overflow-hidden flex flex-col border border-white/5 relative group">
-                            <div class="absolute inset-0 bg-gradient-to-br from-pink-500/10 to-purple-500/10 opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
-                            
-                            <div class="h-96 relative overflow-hidden">
-                                <div class="absolute inset-0 bg-gradient-to-br from-purple-900/20 to-pink-900/20"></div>
-                                <div class="absolute inset-0 flex items-center justify-center">
-                                    <button class="w-20 h-20 rounded-full flex items-center justify-center relative overflow-hidden group-hover:scale-110 transition-transform duration-300">
-                                        <div class="absolute inset-0 bg-gradient-to-r from-pink-500 to-purple-500 rounded-full opacity-20 group-hover:opacity-30 transition-opacity duration-300"></div>
-                                        <svg class="w-10 h-10 text-white relative z-10" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M14.752 11.168l-3.197-2.132A1 1 0 0010 9.87v4.263a1 1 0 001.555.832l3.197-2.132a1 1 0 000-1.664z"/>
-                                        </svg>
-                                    </button>
-                                </div>
-                            </div>
-
-                            <div class="p-8 relative z-10">
-                                <h3 class="text-2xl font-bold mb-4 bg-clip-text text-transparent bg-gradient-to-r from-pink-500 to-purple-500">
-                                    Program {index + 1}
-                                </h3>
-                                <p class="text-gray-400 font-light leading-relaxed">
-                                    Experience the future of fitness with our AI-powered training methodology
-                                </p>
-                                <button class="mt-8 w-full py-4 bg-gradient-to-r from-pink-500 to-purple-500 rounded-xl relative group overflow-hidden">
-                                    <div class="absolute inset-0 bg-gradient-to-r from-pink-600 to-purple-600 translate-y-full group-hover:translate-y-0 transition-transform duration-300"></div>
-                                    <span class="relative z-10 text-white font-medium">Begin Your Evolution</span>
-                                </button>
-                            </div>
+      <div class="carousel-container w-full overflow-hidden">
+        <div class="carousel flex transition-transform duration-700 ease-out">
+          {
+            programs.map((program) => (
+              <div class="carousel-item min-w-full px-4 opacity-0">
+                <div class="max-w-7xl mx-auto">
+                  <div class="grid grid-cols-1 lg:grid-cols-2 gap-12">
+                    <div class="relative group">
+                      <div class="h-[600px] rounded-3xl overflow-hidden">
+                        <div class="absolute inset-0 bg-gradient-to-br from-purple-900/20 to-pink-900/20" />
+                        <img
+                          src={program.image}
+                          alt={program.title}
+                          class="w-full h-full object-cover"
+                        />
+                        <div class="absolute inset-0 flex items-center justify-center">
+                          <button class="w-20 h-20 rounded-full flex items-center justify-center relative overflow-hidden group-hover:scale-110 transition-transform duration-300">
+                            <div class="absolute inset-0 bg-gradient-to-r from-pink-500 to-purple-500 rounded-full opacity-20 group-hover:opacity-30 transition-opacity duration-300" />
+                            <svg
+                              class="w-10 h-10 text-white relative z-10"
+                              fill="none"
+                              stroke="currentColor"
+                              viewBox="0 0 24 24"
+                            >
+                              <path
+                                stroke-linecap="round"
+                                stroke-linejoin="round"
+                                stroke-width="1.5"
+                                d="M14.752 11.168l-3.197-2.132A1 1 0 0010 9.87v4.263a1 1 0 001.555.832l3.197-2.132a1 1 0 000-1.664z"
+                              />
+                            </svg>
+                          </button>
                         </div>
+                      </div>
                     </div>
-                ))}
-            </div>
+
+                    <div class="space-y-8">
+                      <div>
+                        <div class="inline-block px-4 py-1 rounded-full bg-pink-500/10 border border-pink-500/20 text-pink-300 text-sm mb-4">
+                          {program.category}
+                        </div>
+                        <h3 class="text-4xl font-bold text-white mb-4">
+                          {program.title}
+                        </h3>
+                        <p class="text-gray-400 text-lg font-light leading-relaxed">
+                          {program.description}
+                        </p>
+                      </div>
+
+                      <div class="grid grid-cols-3 gap-6">
+                        <div class="p-4 rounded-2xl bg-white/5 backdrop-blur-xl">
+                          <div class="text-3xl font-bold text-pink-500 mb-1">
+                            {program.stats.improvement}
+                          </div>
+                          <div class="text-sm text-gray-400">
+                            Performance Boost
+                          </div>
+                        </div>
+                        <div class="p-4 rounded-2xl bg-white/5 backdrop-blur-xl">
+                          <div class="text-3xl font-bold text-pink-500 mb-1">
+                            {program.stats.satisfaction}
+                          </div>
+                          <div class="text-sm text-gray-400">
+                            Satisfaction Rate
+                          </div>
+                        </div>
+                        <div class="p-4 rounded-2xl bg-white/5 backdrop-blur-xl">
+                          <div class="text-3xl font-bold text-pink-500 mb-1">
+                            {program.stats.retention}
+                          </div>
+                          <div class="text-sm text-gray-400">
+                            Client Retention
+                          </div>
+                        </div>
+                      </div>
+
+                      <ul class="space-y-4">
+                        {program.features.map((feature) => (
+                          <li class="flex items-center space-x-3">
+                            <div class="w-1.5 h-1.5 rounded-full bg-pink-500" />
+                            <span class="text-gray-300">{feature}</span>
+                          </li>
+                        ))}
+                      </ul>
+
+                      <div class="flex gap-4">
+                        <button class="flex-1 py-4 bg-gradient-to-r from-pink-500 to-purple-500 rounded-xl relative group overflow-hidden">
+                          <div class="absolute inset-0 bg-gradient-to-r from-pink-600 to-purple-600 translate-y-full group-hover:translate-y-0 transition-transform duration-300" />
+                          <span class="relative z-10 text-white font-medium">
+                            Join Program
+                          </span>
+                        </button>
+                        <button class="flex-1 py-4 border border-pink-500/30 rounded-xl text-white font-medium hover:bg-pink-500/10 transition-colors">
+                          Learn More
+                        </button>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            ))
+          }
         </div>
+      </div>
     </div>
+  </div>
 </section>
 
 <style>
-.carousel-container {
-    mask-image: linear-gradient(to right, transparent, black 10%, black 90%, transparent);
-    -webkit-mask-image: linear-gradient(to right, transparent, black 10%, black 90%, transparent);
-}
+  .carousel-container {
+    mask-image: linear-gradient(
+      to right,
+      transparent,
+      black 10%,
+      black 90%,
+      transparent
+    );
+    -webkit-mask-image: linear-gradient(
+      to right,
+      transparent,
+      black 10%,
+      black 90%,
+      transparent
+    );
+  }
 
-@keyframes slideInRight {
+  @keyframes slideInRight {
     from {
-        opacity: 0;
-        transform: translateX(100px) scale(0.95);
+      opacity: 0;
+      transform: translateX(100px) scale(0.95);
     }
     to {
-        opacity: 1;
-        transform: translateX(0) scale(1);
+      opacity: 1;
+      transform: translateX(0) scale(1);
     }
-}
+  }
 
-.slide-in-right {
+  .slide-in-right {
     animation: slideInRight 0.8s cubic-bezier(0.16, 1, 0.3, 1) forwards;
-}
+  }
 
-::-webkit-scrollbar {
+  ::-webkit-scrollbar {
     display: none;
-}
+  }
 
-* {
+  * {
     -ms-overflow-style: none;
     scrollbar-width: none;
-}
+  }
 </style>
 
 <script>
-const carousel = document.querySelector('.carousel');
-const items = document.querySelectorAll('.carousel-item');
-const prevBtn = document.getElementById('prev');
-const nextBtn = document.getElementById('next');
+  const carousel = document.querySelector(".carousel");
+  const items = document.querySelectorAll(".carousel-item");
+  const prevBtn = document.getElementById("prev");
+  const nextBtn = document.getElementById("next");
 
-let currentIndex = 0;
+  let currentIndex = 0;
+  const totalSlides = items.length;
 
-function updateCarousel() {
+  // Function to update carousel position
+  function updateCarousel() {
     const translateX = -currentIndex * 100;
     carousel.style.transform = `translateX(${translateX}%)`;
-}
+  }
 
-function showSlide(index) {
+  // Function to handle slide animations and visibility
+  function showSlide(index) {
     items.forEach((item, i) => {
-        if (i === index) {
-            item.classList.add('slide-in-right');
-            item.classList.remove('opacity-0');
-        } else {
-            item.classList.remove('slide-in-right');
-            item.classList.add('opacity-0');
-        }
+      if (i === index) {
+        item.classList.add("slide-in-right");
+        item.classList.remove("opacity-0");
+      } else {
+        item.classList.remove("slide-in-right");
+        item.classList.add("opacity-0");
+      }
     });
-}
+  }
 
-prevBtn?.addEventListener('click', () => {
+  // Previous button click handler
+  prevBtn?.addEventListener("click", () => {
     if (currentIndex > 0) {
+      currentIndex--;
+      updateCarousel();
+      showSlide(currentIndex);
+    }
+  });
+
+  // Next button click handler
+  nextBtn?.addEventListener("click", () => {
+    if (currentIndex < totalSlides - 1) {
+      currentIndex++;
+      updateCarousel();
+      showSlide(currentIndex);
+    }
+  });
+
+  // Initialize first slide
+  showSlide(0);
+
+  // Set up intersection observer for slide animations
+  const observer = new IntersectionObserver(
+    (entries) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+          const index = Array.from(items).indexOf(entry.target);
+          if (index === currentIndex) {
+            entry.target.classList.add("slide-in-right");
+            entry.target.classList.remove("opacity-0");
+          }
+        }
+      });
+    },
+    {
+      threshold: 0.1,
+      rootMargin: "0px",
+    }
+  );
+
+  // Observe all carousel items
+  items.forEach((item) => observer.observe(item));
+
+  // Optional: Add keyboard navigation
+  document.addEventListener("keydown", (e) => {
+    if (e.key === "ArrowLeft" && currentIndex > 0) {
+      currentIndex--;
+      updateCarousel();
+      showSlide(currentIndex);
+    } else if (e.key === "ArrowRight" && currentIndex < totalSlides - 1) {
+      currentIndex++;
+      updateCarousel();
+      showSlide(currentIndex);
+    }
+  });
+
+  // Optional: Add touch support
+  let touchStartX = 0;
+  let touchEndX = 0;
+
+  carousel.addEventListener("touchstart", (e) => {
+    touchStartX = e.touches[0].clientX;
+  });
+
+  carousel.addEventListener("touchend", (e) => {
+    touchEndX = e.changedTouches[0].clientX;
+    handleSwipe();
+  });
+
+  function handleSwipe() {
+    const swipeThreshold = 50;
+    const swipeDistance = touchEndX - touchStartX;
+
+    if (Math.abs(swipeDistance) > swipeThreshold) {
+      if (swipeDistance > 0 && currentIndex > 0) {
+        // Swipe right - go to previous slide
         currentIndex--;
         updateCarousel();
         showSlide(currentIndex);
-    }
-});
-
-nextBtn?.addEventListener('click', () => {
-    if (currentIndex < items.length - 1) {
+      } else if (swipeDistance < 0 && currentIndex < totalSlides - 1) {
+        // Swipe left - go to next slide
         currentIndex++;
         updateCarousel();
         showSlide(currentIndex);
+      }
     }
-});
-
-showSlide(0);
-
-const observer = new IntersectionObserver((entries) => {
-    entries.forEach(entry => {
-        if (entry.isIntersecting) {
-            const index = Array.from(items).indexOf(entry.target);
-            if (index === currentIndex) {
-                entry.target.classList.add('slide-in-right');
-                entry.target.classList.remove('opacity-0');
-            }
-        }
-    });
-}, {
-    threshold: 0.1,
-    rootMargin: '0px'
-});
-
-items.forEach(item => observer.observe(item));
+  }
 </script>
