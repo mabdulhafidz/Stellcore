@@ -11,6 +11,7 @@
   "dependencies": {
     "@tailwindcss/vite": "^4.0.3",
     "astro": "^5.2.3",
+    "particles.js": "^2.0.0",
     "retrograde-remnant": "file:"
   },
   "devDependencies": {

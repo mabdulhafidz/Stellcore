@@ -4,7 +4,8 @@ const programs = [
     title: "Elite Performance",
     description:
       "AI-powered training methodology for peak athletic performance",
-    image: "https://images.pexels.com/photos/700446/pexels-photo-700446.jpeg?auto=compress&cs=tinysrgb&w=600",
+    image:
+      "https://images.pexels.com/photos/700446/pexels-photo-700446.jpeg?auto=compress&cs=tinysrgb&w=600",
     category: "Premium",
     features: [
       "Advanced AI tracking",
@@ -22,7 +23,8 @@ const programs = [
     title: "Strength Master",
     description:
       "Revolutionary strength training program with cutting-edge techniques",
-    image: "https://images.pexels.com/photos/1480530/pexels-photo-1480530.jpeg?auto=compress&cs=tinysrgb&w=600",
+    image:
+      "https://images.pexels.com/photos/1480530/pexels-photo-1480530.jpeg?auto=compress&cs=tinysrgb&w=600",
     category: "Advanced",
     features: [
       "Progressive overload AI",
@@ -39,7 +41,8 @@ const programs = [
   {
     title: "Endurance Elite",
     description: "Next-generation endurance training for exceptional stamina",
-    image: "https://images.pexels.com/photos/241456/pexels-photo-241456.jpeg?auto=compress&cs=tinysrgb&w=600",
+    image:
+      "https://images.pexels.com/photos/241456/pexels-photo-241456.jpeg?auto=compress&cs=tinysrgb&w=600",
     category: "Specialty",
     features: [
       "VO2 max optimization",
@@ -56,7 +59,8 @@ const programs = [
   {
     title: "Transform Pro",
     description: "Complete body transformation using AI-driven methodologies",
-    image: "https://images.pexels.com/photos/2092479/pexels-photo-2092479.jpeg?auto=compress&cs=tinysrgb&w=600",
+    image:
+      "https://images.pexels.com/photos/2092479/pexels-photo-2092479.jpeg?auto=compress&cs=tinysrgb&w=600",
     category: "Premium",
     features: [
       "Body composition AI",
@@ -96,8 +100,7 @@ const achievements = [
 ];
 ---
 
-<section class="bg-[#0D0116] min-h-screen overflow-hidden relative">
-  <!-- Animated background gradients -->
+<section class="bg-[#0D0116] min-h-screen overflow-hidden relative h-full">
   <div class="absolute inset-0 opacity-30">
     <div
       class="absolute top-0 left-1/4 w-96 h-96 bg-pink-600/20 rounded-full filter blur-[128px] animate-pulse"
@@ -109,10 +112,8 @@ const achievements = [
     </div>
   </div>
 
-  <!-- Hero Section -->
   <div class="relative z-10 pt-20">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-      <!-- Decorative element -->
       <div class="flex items-center gap-2 mb-8">
         <div class="w-12 h-[2px] bg-gradient-to-r from-pink-500 to-purple-500">
         </div>
@@ -155,7 +156,6 @@ const achievements = [
           </div>
         </div>
 
-        <!-- Stats Cards -->
         <div class="grid grid-cols-2 gap-6">
           {
             achievements.map((achievement) => (
@@ -175,8 +175,7 @@ const achievements = [
       </div>
     </div>
 
-    <!-- Programs Carousel -->
-    <div class="mt-32 relative">
+    <div class="mb-20 mt-20 relative">
       <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 mb-12">
         <div class="flex justify-between items-center">
           <h2 class="text-3xl font-bold text-white">Featured Programs</h2>
@@ -379,13 +378,11 @@ const achievements = [
   let currentIndex = 0;
   const totalSlides = items.length;
 
-  // Function to update carousel position
   function updateCarousel() {
     const translateX = -currentIndex * 100;
     carousel.style.transform = `translateX(${translateX}%)`;
   }
 
-  // Function to handle slide animations and visibility
   function showSlide(index) {
     items.forEach((item, i) => {
       if (i === index) {
@@ -398,7 +395,6 @@ const achievements = [
     });
   }
 
-  // Previous button click handler
   prevBtn?.addEventListener("click", () => {
     if (currentIndex > 0) {
       currentIndex--;
@@ -407,7 +403,6 @@ const achievements = [
     }
   });
 
-  // Next button click handler
   nextBtn?.addEventListener("click", () => {
     if (currentIndex < totalSlides - 1) {
       currentIndex++;
@@ -416,10 +411,8 @@ const achievements = [
     }
   });
 
-  // Initialize first slide
   showSlide(0);
 
-  // Set up intersection observer for slide animations
   const observer = new IntersectionObserver(
     (entries) => {
       entries.forEach((entry) => {
@@ -438,10 +431,8 @@ const achievements = [
     }
   );
 
-  // Observe all carousel items
   items.forEach((item) => observer.observe(item));
 
-  // Optional: Add keyboard navigation
   document.addEventListener("keydown", (e) => {
     if (e.key === "ArrowLeft" && currentIndex > 0) {
       currentIndex--;
@@ -454,7 +445,6 @@ const achievements = [
     }
   });
 
-  // Optional: Add touch support
   let touchStartX = 0;
   let touchEndX = 0;
 
@@ -473,12 +463,10 @@ const achievements = [
 
     if (Math.abs(swipeDistance) > swipeThreshold) {
       if (swipeDistance > 0 && currentIndex > 0) {
-        // Swipe right - go to previous slide
         currentIndex--;
         updateCarousel();
         showSlide(currentIndex);
       } else if (swipeDistance < 0 && currentIndex < totalSlides - 1) {
-        // Swipe left - go to next slide
         currentIndex++;
         updateCarousel();
         showSlide(currentIndex);
