@@ -14,6 +14,8 @@ npm create astro@latest -- --template basics
 
 ## 🚀 Project Structure
 
+Hello, Apechi and Brax here.
+
 Inside of your Astro project, you'll see the following folders and files:
 
 ```text
